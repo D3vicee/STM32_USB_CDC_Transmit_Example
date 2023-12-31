@@ -26,10 +26,10 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
- uint16_t sayac = 0;
- uint8_t send[] = "saniye : ";
+ uint16_t counter = 0;
+ uint8_t send[] = "second : ";
  uint16_t buffer[20];
- uint16_t sayac2;
+ uint16_t counter_2;
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -188,10 +188,10 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
 	sayac++;
 
-	if(sayac%1000 == 0)
+	if(counter%1000 == 0)
 	{
-		sayac2++;
-		sprintf(buffer, "%x ", sayac2);//stdio.h--->sprintf int to char, strtol strint char* to int
+		counter_2++;
+		sprintf(buffer, "%x ", counter_2);//stdio.h--->sprintf int to char, strtol strint char* to int
 		CDC_Transmit_FS(send, strlen(send));
 		CDC_Transmit_FS(buffer, sizeof(buffer));
 	}
